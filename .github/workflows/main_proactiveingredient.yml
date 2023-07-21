@@ -22,13 +22,11 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Create and start virtual environment
-        run: |
-          python -m venv venv
-          source venv/bin/activate
-      
+      - name: Activate environment
+        run: conda activate app_flask_basic_conda
+        
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: conda env create --file ./environments/app_flask_basic_conda.yml 
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
