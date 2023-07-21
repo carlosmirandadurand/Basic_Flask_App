@@ -1,15 +1,15 @@
 # Conda environment for Data Science in Azure
 # Platform: Linux
 # First Time Use:
-#   $ conda env create --file ./environments/conda.lock.yml
+#   $ conda env create --file ./conda.lock.yml
 # Use:
 #   $ conda activate conda
 # Creation for the record in Windows:
 #   $ conda info --envs
 #   $ conda env remove -n conda
-#   $ conda env create --file ./environments/conda.yml 
+#   $ conda env create --file ./conda.yml 
 #   $ conda activate conda
-#   $ conda env export > ./environments/conda.lock.yml
+#   $ conda env export > ./conda.lock.yml
 name: conda
 channels:
   - anaconda
