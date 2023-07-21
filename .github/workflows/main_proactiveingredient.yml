@@ -21,12 +21,15 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: '3.11'
+ 
+      - name: Initialize conda
+        run: conda init bash
 
-      - name: Activate environment
-        run: conda activate app_flask_basic_conda
-        
       - name: Install dependencies
         run: conda env create --file ./environments/app_flask_basic_conda.yml 
+        
+      - name: Activate environment
+        run: conda activate app_flask_basic_conda
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
