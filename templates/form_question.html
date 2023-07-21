@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question Form</title>
+</head>
+<body>
+    <h1>Question Form</h1>
+    <form method="POST">
+        <div>
+            <label for="name">Name:</label>
+            <label id="name">{{ name }}</label>
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <label id="email">{{ email }}</label>
+        </div>
+        <div>
+            <label for="question">Question:</label>
+            <textarea id="question" name="question" required></textarea>
+        </div>
+        <div>
+            <input type="submit" value="Submit">
+        </div>
+        <p>Finished? <a href="{{ url_for('logout') }}">Logout</a></p>
+    </form>
+</body>
+</html>
