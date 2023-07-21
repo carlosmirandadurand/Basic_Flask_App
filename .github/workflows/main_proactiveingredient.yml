@@ -21,16 +21,23 @@ jobs:
         uses: actions/setup-python@v1
         with:
           python-version: '3.11'
- 
-      - name: Initialize conda
-        run: conda init bash
-        shell: bash
 
-      - name: Install dependencies and activate environment
+      - name: Create and start virtual environment
         run: |
-          conda env create --file ./environments/app_flask_basic_conda.yml
-          conda activate app_flask_basic_conda
-        shell: bash
+          python -m venv venv
+          source venv/bin/activate
+      
+      - name: Install dependencies
+        run: pip install -r ./environments/requirements.txt
+        
+
+      # - name: Install dependencies in virtual environment
+      #   run: conda env create --quiet --file ./environments/app_flask_basic_conda.yml
+      #   shell: bash
+
+      # - name: Activate virtual environment
+      #   run: conda activate app_flask_basic_conda
+      #   shell: bash
 
       - name: Print Directory Structure
         run: ls -R
@@ -41,7 +48,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: python-app
-          path: .
+          path: |
+            . 
+            !venv/
 
   deploy:
     runs-on: ubuntu-latest
@@ -64,3 +73,5 @@ jobs:
           app-name: 'proactiveingredient'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D2646687D94E41DD97472A25499C50BE }}
+
+          
