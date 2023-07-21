@@ -24,22 +24,24 @@ jobs:
  
       - name: Initialize conda
         run: conda init bash
+        shell: bash
 
-      - name: Install dependencies
-        run: conda env create --file ./environments/app_flask_basic_conda.yml 
-        
-      - name: Activate environment
-        run: conda activate app_flask_basic_conda
-        
+      - name: Install dependencies and activate environment
+        run: |
+          conda env create --file ./environments/app_flask_basic_conda.yml
+          conda activate app_flask_basic_conda
+        shell: bash
+
+      - name: Print Directory Structure
+        run: ls -R
+
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
           name: python-app
-          path: |
-            . 
-            !venv/
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
