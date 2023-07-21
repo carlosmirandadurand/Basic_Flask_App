@@ -1,16 +1,16 @@
-# Conda environment for Data Science in Azure
-# Platform: Linux
+# Conda environment for Data Science in Azure (windows local machine)
+# Platform: Windows / 64 bits
 # First Time Use:
-#   $ conda env create --file ./conda.lock.yml
+#   $ conda env create --file ./environments/app_flask_basic_conda.lock.yml
 # Use:
-#   $ conda activate conda
+#   $ conda activate app_flask_basic_conda
 # Creation for the record in Windows:
 #   $ conda info --envs
-#   $ conda env remove -n conda
-#   $ conda env create --file ./conda.yml 
-#   $ conda activate conda
-#   $ conda env export > ./conda.lock.yml
-name: conda
+#   $ conda env remove -n app_flask_basic_conda
+#   $ conda env create --file ./environments/app_flask_basic_conda.yml 
+#   $ conda activate app_flask_basic_conda
+#   $ conda env export > ./environments/app_flask_basic_conda.lock.yml
+name: app_flask_basic_conda
 channels:
   - anaconda
   - conda-forge
